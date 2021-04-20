@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://192.168.111.115:8888/updateRole.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>修改角色页面</title>
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <form id="ff" method="post">
+        <input id="rid" type="text" name="rid" style="display: none">
+        <table cellpadding="5">
+
+            <tbody><tr>
+                <td>角色编码:</td>
+                <td><input id="rcode" class="easyui-textbox textbox-f" type="text" data-options="required:true" textboxname="rcode" style="display: none;"><span class="textbox" style="width: 177px;"><input id="_easyui_textbox_input1" type="text" class="textbox-text validatebox-text" autocomplete="off" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 28px; line-height: 28px; width: 175px;"><input type="hidden" class="textbox-value" name="rcode" value="003"></span></td>
+            </tr>
+            <tr>
+                <td>角色名称:</td>
+                <td><input id="rname" class="easyui-textbox textbox-f" type="text" data-options="required:true" textboxname="rname" style="display: none;"><span class="textbox" style="width: 177px;"><input id="_easyui_textbox_input2" type="text" class="textbox-text validatebox-text" autocomplete="off" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 28px; line-height: 28px; width: 175px;"><input type="hidden" class="textbox-value" name="rname" value="财务"></span></td>
+            </tr>
+            <tr>
+                <td>角色功能:</td>
+                <td>
+                    <ul id="tt" class="tree"><li><div id="_easyui_tree_1" class="tree-node"><span class="tree-hit tree-expanded"></span><span class="tree-icon tree-folder tree-folder-open "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">系统管理</span></div><ul style="display:block"><li><div id="_easyui_tree_2" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">人员管理</span></div></li><li><div id="_easyui_tree_3" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">角色管理</span></div></li><li><div id="_easyui_tree_4" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">功能权限</span></div></li></ul></li><li><div id="_easyui_tree_5" class="tree-node"><span class="tree-hit tree-expanded"></span><span class="tree-icon tree-folder tree-folder-open "></span><span class="tree-checkbox tree-checkbox2"></span><span class="tree-title">消息管理</span></div><ul style="display:block"><li><div id="_easyui_tree_6" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">发件箱</span></div></li><li><div id="_easyui_tree_7" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">测试功能</span></div></li><li><div id="_easyui_tree_8" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">发送消息</span></div></li><li><div id="_easyui_tree_9" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">推送消息</span></div></li><li><div id="_easyui_tree_10" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">收件箱</span></div></li></ul></li><li><div id="_easyui_tree_11" class="tree-node"><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">客户信息管理</span></div></li><li><div id="_easyui_tree_12" class="tree-node"><span class="tree-hit tree-expanded"></span><span class="tree-icon tree-folder tree-folder-open "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">财务管理</span></div><ul style="display:block"><li><div id="_easyui_tree_13" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox0"></span><span class="tree-title">审批报表</span></div></li></ul></li><li><div id="_easyui_tree_14" class="tree-node"><span class="tree-hit tree-expanded"></span><span class="tree-icon tree-folder tree-folder-open "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">删除一级功能</span></div><ul style="display:block"><li><div id="_easyui_tree_15" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">删除二级功能1</span></div></li><li><div id="_easyui_tree_16" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">333</span></div></li><li><div id="_easyui_tree_17" class="tree-node"><span class="tree-indent"></span><span class="tree-indent"></span><span class="tree-icon tree-file "></span><span class="tree-checkbox tree-checkbox1"></span><span class="tree-title">444</span></div></li></ul></li></ul>
+                </td>
+            </tr>
+
+
+
+
+        </tbody></table>
+    </form>
+</div>
+<div style="text-align:center;padding:5px">
+    <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small" onclick="submitForm()" group="" id=""><span class="l-btn-left"><span class="l-btn-text">提交</span></span></a>
+    <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small" onclick="clearForm()" group="" id=""><span class="l-btn-left"><span class="l-btn-text">取消</span></span></a>
+</div>
+<script>
+    $(function () {
+        $.ajax({
+            url:"/role/getUpdateRole",
+            success:function (data) {
+                $("#rid").val(data.rid);
+                $('#rcode').textbox('setValue',data.rcode);
+                $('#rname').textbox('setValue',data.rname);
+                $('#tt').tree({
+                    url:'/role/getUpdateViewTree',
+                    checkbox:true
+                });
+
+            }
+        })
+
+    })
+    function submitForm(){
+        //获取已勾选和未确定的功能节点
+        var nodes = $('#tt').tree('getChecked', ['checked','indeterminate']);
+        var fids = '';
+        for(var i=0;i<nodes.length;i++){
+            fids+=nodes[i].id+",";
+        }
+        $('#ff').form('submit', {
+            url:"/role/updateRole?fids="+fids,
+            success:function(data){
+                var obj = eval("("+data+")");
+                alert(obj.message);
+                if(obj.success){
+                    window.location.href="/roleList.html";
+                }else{
+                    window.location.reload();
+                }
+            }
+        });
+    }
+    function clearForm(){
+        $('#ff').form('clear');
+    }
+</script>
+
+</body></html>

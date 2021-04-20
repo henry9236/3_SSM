@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)http://192.168.111.115:8888//sendMessageList.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>发件箱列表页面</title>
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+
+<div class="panel datagrid panel-htop"><div class="datagrid-wrap panel-body panel-body-noheader" title="" style="width: 1560px;"><div id="tb" class="datagrid-toolbar">
+    收件人：<input id="ename" name="ename" type="text">
+    <a class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:&#39;icon-search&#39;,plain:true" onclick="serchMessage()" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">搜索</span><span class="l-btn-icon icon-search">&nbsp;</span></span></a>
+    <!--<a class="easyui-linkbutton" data-options="iconCls:'icon-cut',plain:true" onclick="batchDelete()">批量删除</a>-->
+</div><div class="datagrid-view" style="width: 1558px; height: 64px;"><div class="datagrid-view1" style="width: 0px;"><div class="datagrid-header" style="width: 0px; height: 32px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 32px;"><tbody></tbody></table></div></div><div class="datagrid-body" style="width: 0px; margin-top: 0px; height: 32px;"><div class="datagrid-body-inner"></div></div><div class="datagrid-footer" style="width: 0px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><div class="datagrid-view2" style="width: 1558px;"><div class="datagrid-header" style="width: 1558px; height: 32px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 32px;"><tbody><tr class="datagrid-header-row"><td field="id"><div class="datagrid-header-check"><input type="checkbox"></div></td><td field="title"><div class="datagrid-cell datagrid-cell-c1-title"><span>标题</span><span class="datagrid-sort-icon"></span></div></td><td field="sendtime" class=""><div class="datagrid-cell datagrid-cell-c1-sendtime"><span>发送时间</span><span class="datagrid-sort-icon"></span></div></td><td field="sendstate"><div class="datagrid-cell datagrid-cell-c1-sendstate"><span>发送状态</span><span class="datagrid-sort-icon"></span></div></td><td field="ename"><div class="datagrid-cell datagrid-cell-c1-ename"><span>收件人</span><span class="datagrid-sort-icon"></span></div></td><td field="messagetype"><div class="datagrid-cell datagrid-cell-c1-messagetype"><span>消息类型</span><span class="datagrid-sort-icon"></span></div></td><td field="operate"><div class="datagrid-cell datagrid-cell-c1-operate"><span>操作</span><span class="datagrid-sort-icon"></span></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 1558px; margin-top: 0px; overflow-x: hidden; height: 32px;"><table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0"><tbody><tr id="datagrid-row-r1-2-0" datagrid-row-index="0" class="datagrid-row  "><td field="id"><div style="" class="datagrid-cell-check"><input type="checkbox" name="id" value="90"></div></td><td field="title"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-title">111111</div></td><td field="sendtime"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-sendtime">2021-01-05 10:23:20</div></td><td field="sendstate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-sendstate">SEND</div></td><td field="ename"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-ename"></div></td><td field="messagetype"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-messagetype">NORMAL</div></td><td field="operate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-operate"><a onclick="messageDetail(90)">详情</a><a></a></div></td></tr></tbody></table></div><div class="datagrid-footer" style="width: 1558px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><table id="dg" class="datagrid-f" style="display: none;"></table><style type="text/css" easyui="true">
+.datagrid-header-rownumber{width:29px}
+.datagrid-cell-rownumber{width:29px}
+.datagrid-cell-c1-title{width:99px}
+.datagrid-cell-c1-sendtime{width:299px}
+.datagrid-cell-c1-sendstate{width:99px}
+.datagrid-cell-c1-ename{width:99px}
+.datagrid-cell-c1-messagetype{width:99px}
+.datagrid-cell-c1-operate{width:99px}
+</style></div><div class="datagrid-pager pagination"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><select class="pagination-page-list"><option>3</option><option>5</option><option>7</option></select></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-first">&nbsp;</span></span></a></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-prev">&nbsp;</span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><span style="padding-left:6px;">Page</span></td><td><input class="pagination-num" type="text" value="1" size="2"></td><td><span style="padding-right:6px;">of 1</span></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-next">&nbsp;</span></span></a></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-last">&nbsp;</span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-load">&nbsp;</span></span></a></td></tr></tbody></table><div class="pagination-info">Displaying 1 to 1 of 1 items</div><div style="clear:both;"></div></div></div></div>
+
+
+<script>
+    $('#dg').datagrid({
+        url:'/message/findMessagesByCondition',
+        columns:[[
+            {field:'id',title:'消息id',width:100,checkbox:true},
+            {field:'title',title:'标题',width:100},
+            {field:'sendtime',title:'发送时间',width:300},
+            {field:'sendstate',title:'发送状态',width:100},
+            {field:'ename',title:'收件人',width:100},
+            {field:'messagetype',title:'消息类型',width:100},
+            {field:'operate',title:'操作', width:100,
+                formatter: function(value,row,index){
+                    return "<a onclick=messageDetail("+row.id+")>详情<a/>" ;
+                }
+            }
+        ]],
+        pagination:true,
+        pageNumber:1,
+        pageSize:5,
+        pageList:[3,5,7],
+        toolbar: '#tb'
+    });
+
+    function serchMessage() {
+        $('#dg').datagrid('load', {
+            ename: $('#ename').val()
+        });
+    }
+
+    /**
+     *修改权限页面
+     */
+    function updateFunctionView(fid) {
+        $.ajax({
+            type: "POST",
+            url: "/function/toUpdateView?fid="+fid,
+            success: function(data){
+                if(data.success){
+                    window.location.href="/updateFunction.html";
+                }else{
+                    alert("操作失败！");
+                }
+            }
+        });
+
+    }
+
+    /**
+     * 功能详情
+     */
+    function functionDetail(fid){
+        $.ajax({
+            type: "POST",
+            url: "/function/toDetailView?fid="+fid,
+            success: function(data){
+                if(data.success){
+                    window.location.href="/functionDetail.html";
+                }else{
+                    alert("操作失败！");
+                }
+            }
+        });
+    }
+
+    /**
+     * 删除功能权限
+     */
+    function deleteFunctionByFid(fid) {
+        if(confirm("是否确定删除？")){
+            //执行删除
+            $.ajax({
+                type: "POST",
+                url: "/function/deleteFunctionByFid?fid="+fid,
+                success: function(data){
+                    if(data.success){
+                        window.location.href="/functionList.html";
+                    }else{
+                        alert("操作失败！");
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 批量删除
+     */
+    function batchDelete() {
+        if(confirm("是否确定删除")){
+            //获取选中的所有行
+            var rows = $('#dg').datagrid('getChecked');
+            var fids='';
+            for(var i=0;i<rows.length;i++){
+                fids +=rows[i].fid+",";
+            }
+            //发送请求做批量删除
+            $.ajax({
+                type: "POST",
+                url: "/function/deleteFunctionByFids?fids="+fids,
+                success: function(data){
+                    if(data.success){
+                        window.location.href="/functionList.html";
+                    }else{
+                        alert("操作失败！");
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+
+
+    }
+</script>
+
+</body></html>

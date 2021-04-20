@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://192.168.111.115:8888//roleList.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>角色列表页面</title>
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+
+<div class="panel datagrid panel-htop"><div class="datagrid-wrap panel-body panel-body-noheader" title="" style="width: 1560px;"><div id="tb" class="datagrid-toolbar">
+    <a href="http://192.168.111.115:8888/addRole.html" class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:&#39;icon-add&#39;,plain:true" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">新增</span><span class="l-btn-icon icon-add">&nbsp;</span></span></a>
+    角色名称：<input id="fname" name="fname" type="text">
+    <a class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:&#39;icon-search&#39;,plain:true" onclick="serchFunction()" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">搜索</span><span class="l-btn-icon icon-search">&nbsp;</span></span></a>
+    <a class="easyui-linkbutton l-btn l-btn-small l-btn-plain" data-options="iconCls:&#39;icon-cut&#39;,plain:true" onclick="batchDelete()" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text">批量删除</span><span class="l-btn-icon icon-cut">&nbsp;</span></span></a>
+</div><div class="datagrid-view" style="width: 1558px; height: 160px;"><div class="datagrid-view1" style="width: 0px;"><div class="datagrid-header" style="width: 0px; height: 32px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 32px;"><tbody></tbody></table></div></div><div class="datagrid-body" style="width: 0px; margin-top: 0px; height: 128px;"><div class="datagrid-body-inner"></div></div><div class="datagrid-footer" style="width: 0px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><div class="datagrid-view2" style="width: 1558px;"><div class="datagrid-header" style="width: 1558px; height: 32px;"><div class="datagrid-header-inner" style="display: block;"><table class="datagrid-htable" border="0" cellspacing="0" cellpadding="0" style="height: 32px;"><tbody><tr class="datagrid-header-row"><td field="rid"><div class="datagrid-header-check"><input type="checkbox"></div></td><td field="rcode"><div class="datagrid-cell datagrid-cell-c1-rcode"><span>角色编码</span><span class="datagrid-sort-icon"></span></div></td><td field="rname"><div class="datagrid-cell datagrid-cell-c1-rname"><span>角色名称</span><span class="datagrid-sort-icon"></span></div></td><td field="operate"><div class="datagrid-cell datagrid-cell-c1-operate"><span>操作</span><span class="datagrid-sort-icon"></span></div></td></tr></tbody></table></div></div><div class="datagrid-body" style="width: 1558px; margin-top: 0px; overflow-x: hidden; height: 128px;"><table class="datagrid-btable" cellspacing="0" cellpadding="0" border="0"><tbody><tr id="datagrid-row-r1-2-0" datagrid-row-index="0" class="datagrid-row  "><td field="rid"><div style="" class="datagrid-cell-check"><input type="checkbox" name="rid" value="3"></div></td><td field="rcode"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rcode">003</div></td><td field="rname"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rname">财务</div></td><td field="operate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-operate"><a onclick="roleDetail(3)">详情</a><a></a>                        <a onclick="updateRoleView(3)">修改</a><a></a>                        <a onclick="deleteRoleByFid(3)">删除</a><a></a></div></td></tr><tr id="datagrid-row-r1-2-1" datagrid-row-index="1" class="datagrid-row  "><td field="rid"><div style="" class="datagrid-cell-check"><input type="checkbox" name="rid" value="5"></div></td><td field="rcode"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rcode">005</div></td><td field="rname"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rname">超级管理员</div></td><td field="operate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-operate"><a onclick="roleDetail(5)">详情</a><a></a>                        <a onclick="updateRoleView(5)">修改</a><a></a>                        <a onclick="deleteRoleByFid(5)">删除</a><a></a></div></td></tr><tr id="datagrid-row-r1-2-2" datagrid-row-index="2" class="datagrid-row  "><td field="rid"><div style="" class="datagrid-cell-check"><input type="checkbox" name="rid" value="69"></div></td><td field="rcode"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rcode">001</div></td><td field="rname"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rname">行政</div></td><td field="operate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-operate"><a onclick="roleDetail(69)">详情</a><a></a>                        <a onclick="updateRoleView(69)">修改</a><a></a>                        <a onclick="deleteRoleByFid(69)">删除</a><a></a></div></td></tr><tr id="datagrid-row-r1-2-3" datagrid-row-index="3" class="datagrid-row  "><td field="rid"><div style="" class="datagrid-cell-check"><input type="checkbox" name="rid" value="70"></div></td><td field="rcode"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rcode">002</div></td><td field="rname"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-rname">程序员</div></td><td field="operate"><div style="height:auto;" class="datagrid-cell datagrid-cell-c1-operate"><a onclick="roleDetail(70)">详情</a><a></a>                        <a onclick="updateRoleView(70)">修改</a><a></a>                        <a onclick="deleteRoleByFid(70)">删除</a><a></a></div></td></tr></tbody></table></div><div class="datagrid-footer" style="width: 1558px;"><div class="datagrid-footer-inner" style="display: none;"></div></div></div><table id="dg" class="datagrid-f" style="display: none;"></table><style type="text/css" easyui="true">
+.datagrid-header-rownumber{width:29px}
+.datagrid-cell-rownumber{width:29px}
+.datagrid-cell-c1-rcode{width:99px}
+.datagrid-cell-c1-rname{width:99px}
+.datagrid-cell-c1-operate{width:99px}
+</style></div><div class="datagrid-pager pagination"><table cellspacing="0" cellpadding="0" border="0"><tbody><tr><td><select class="pagination-page-list"><option>3</option><option>5</option><option>7</option></select></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-first">&nbsp;</span></span></a></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-prev">&nbsp;</span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><span style="padding-left:6px;">Page</span></td><td><input class="pagination-num" type="text" value="1" size="2"></td><td><span style="padding-right:6px;">of 1</span></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-next">&nbsp;</span></span></a></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain l-btn-disabled l-btn-plain-disabled" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-last">&nbsp;</span></span></a></td><td><div class="pagination-btn-separator"></div></td><td><a href="javascript:;" class="l-btn l-btn-small l-btn-plain" group="" id=""><span class="l-btn-left l-btn-icon-left"><span class="l-btn-text l-btn-empty">&nbsp;</span><span class="l-btn-icon pagination-load">&nbsp;</span></span></a></td></tr></tbody></table><div class="pagination-info">Displaying 1 to 4 of 4 items</div><div style="clear:both;"></div></div></div></div>
+
+
+<script>
+    $('#dg').datagrid({
+        url:'/role/findRolesByCondition',
+        columns:[[
+            {field:'rid',title:'角色id',width:100,checkbox:true},
+            {field:'rcode',title:'角色编码',width:100},
+            {field:'rname',title:'角色名称',width:100},
+            {field:'operate',title:'操作', width:100,
+                formatter: function(value,row,index){
+                    return "<a onclick=roleDetail("+row.rid+")>详情<a/>\
+                        <a onclick=updateRoleView("+row.rid+")>修改<a/>\
+                        <a onclick=deleteRoleByFid("+row.rid+")>删除<a/>" ;
+                }
+            }
+        ]],
+        pagination:true,
+        pageNumber:1,
+        pageSize:5,
+        pageList:[3,5,7],
+        toolbar: '#tb'
+    });
+
+    function serchFunction() {
+        $('#dg').datagrid('load', {
+            fname: $('#fname').val()
+
+        });
+    }
+
+    /**
+     *进入修改角色信息
+     */
+    function updateRoleView(rid) {
+        $.ajax({
+            type: "POST",
+            url: "/role/toUpdateView?rid="+rid,
+            success: function(data){
+                if(data.success){
+                    window.location.href="/updateRole.html";
+                }else{
+                    alert("操作失败！");
+                }
+            }
+        });
+
+    }
+
+    /**
+     * 功能详情
+     */
+    function functionDetail(fid){
+        $.ajax({
+            type: "POST",
+            url: "/function/toDetailView?fid="+fid,
+            success: function(data){
+                if(data.success){
+                    window.location.href="/functionDetail.html";
+                }else{
+                    alert("操作失败！");
+                }
+            }
+        });
+    }
+
+    /**
+     * 删除角色
+     */
+    function deleteRoleByFid(rid) {
+        if(confirm("是否确定删除？")){
+            //执行删除
+            $.ajax({
+                type: "POST",
+                url: "/role/deleteRoleByRid?rid="+rid,
+                success: function(data){
+                    if(data.success){
+                        window.location.href="/roleList.html";
+                    }else{
+                        alert("操作失败！");
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 批量删除
+     */
+    function batchDelete() {
+        if(confirm("是否确定删除")){
+            //获取选中的所有行
+            var rows = $('#dg').datagrid('getChecked');
+            var fids='';
+            for(var i=0;i<rows.length;i++){
+                fids +=rows[i].fid+",";
+            }
+            //发送请求做批量删除
+            $.ajax({
+                type: "POST",
+                url: "/function/deleteFunctionByFids?fids="+fids,
+                success: function(data){
+                    if(data.success){
+                        window.location.href="/functionList.html";
+                    }else{
+                        alert("操作失败！");
+                        window.location.reload();
+                    }
+                }
+            });
+        }
+
+
+    }
+</script>
+
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>修改权限页面</title>
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+
+
+<div align="center">
+    <form id="ff" method="post">
+        <input id="fid" name="fid" type="hidden">
+        <table cellpadding="5">
+            <tr>
+                <td>功能编码:</td>
+                <td><input id="fcode" class="easyui-textbox" type="text" name="fcode" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>功能名称:</td>
+                <td><input id="fname" class="easyui-textbox" type="text" name="fname" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>功能链接:</td>
+                <td><input id="url" class="easyui-textbox" type="text" name="url" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>功能级别:</td>
+                <td>
+                    <input name="flevel" id="cc1" class="easyui-combobox" data-options="
+    valueField: 'id',
+    textField: 'text',
+    data: [{
+			id: '1',
+			text: '一级功能'
+		},{
+			id: '2',
+			text: '二级功能'
+		}],
+    onSelect: function(rec){
+    if(rec.id==2){
+        $('#parentFunction').removeAttr('style');
+        var url = '/EFunction/getFirstFunctions';
+        $('#cc2').combobox('reload', url);
+    }else{
+          $('#parentFunction').attr('style','display: none')
+    }
+
+    }">                 <div id="parentFunction" style="display: none">
+                    <input name="parentid" id="cc2" class="easyui-combobox" data-options="valueField:'fid',textField:'fname',label:'一级功能：'">
+                </div>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+    <div style="text-align:center;padding:5px">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">取消</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $.ajax({
+            type: "POST",
+            url: "/EFunction/getUpdateFunction",
+            success: function(data){
+                $('#fid').val(data.fid);
+                $('#fcode').textbox('setValue',data.fcode);
+                $('#fname').textbox('setValue',data.fname);
+                $('#url').textbox('setValue',data.url);
+                if(data.parentid==0){
+                    $('#cc1').combobox('setValue', 1);
+                    $('#cc1').combobox('setText', "一级功能");
+                }else{
+                    $('#parentFunction').removeAttr('style');
+                    $('#cc1').combobox('setValue', 2);
+                    $('#cc1').combobox('setText', "二级功能");
+                    $('#cc2').combobox('setValue', data.parentid);
+                    $('#cc2').combobox('setText', data.remark2);
+                }
+            }
+        });
+    });
+
+    /**
+     * 修改
+     */
+    function submitForm(){
+        $('#ff').form('submit', {
+            url:"/EFunction/commitUpdateFunction",
+            success:function(data){
+                var obj=eval("("+data+")")
+                alert(obj.msg);
+                if(obj.status){
+                    window.location.href="/functionList.html"
+                }else{
+                    window.location.reload();
+                }
+            }
+        });
+    }
+    function clearForm(){
+        $('#ff').form('clear');
+    }
+</script>
+</body>
+</html>

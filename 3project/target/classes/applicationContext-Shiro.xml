@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+https://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/aop
+https://www.springframework.org/schema/aop/spring-aop.xsd
+http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--真正的shiro过滤器，处理拦截的所有请求，web.xml文件中配置的过滤器-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <!--指定未认证跳转页面-->
+        <property name="loginUrl" value="/index.html"/>
+        <!--指定未授权跳转页面-->
+        <property name="unauthorizedUrl" value="/index.html"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /js/** = anon
+                /css/** = anon
+                /** = anon
+            </value>
+        </property>
+    </bean>
+    <bean class="org.apache.shiro.web.filter.authc.LogoutFilter"></bean>
+    <!--配置securityManager-->
+    <bean id="securityManager"
+          class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"></property>
+    </bean>
+    <!--管理shiro生命周期-->
+    <bean id="lifecycleBeanPostProcessor"
+          class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!--配置Realm，自定义realm，管理不同清况的登录和权限-->
+    <bean id="myRealm" class="com.realm.EmployeeRealm">
+        <!--指定加密算法和迭代次数-->
+        <property name="credentialsMatcher">
+            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+                <property name="hashAlgorithmName" value="MD5"></property>
+                <property name="hashIterations" value="3"></property>
+            </bean>
+        </property>
+    </bean>
+</beans>
