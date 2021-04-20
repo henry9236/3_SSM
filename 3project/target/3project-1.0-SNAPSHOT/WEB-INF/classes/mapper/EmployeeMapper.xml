@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="com.bean.Employee">
+    <id column="eid" jdbcType="BIGINT" property="eid" />
+    <result column="ename" jdbcType="VARCHAR" property="ename" />
+    <result column="esex" jdbcType="BIGINT" property="esex" />
+    <result column="eage" jdbcType="BIGINT" property="eage" />
+    <result column="etelephone" jdbcType="VARCHAR" property="etelephone" />
+    <result column="hiredate" jdbcType="DATE" property="hiredate" />
+    <result column="jobnumber" jdbcType="VARCHAR" property="jobnumber" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="remark1" jdbcType="VARCHAR" property="remark1" />
+    <result column="remark2" jdbcType="VARCHAR" property="remark2" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    eid, ename, esex, eage, etelephone, hiredate, jobnumber, password, remark, remark1, 
+    remark2
+  </sql>
+  <select id="selectByExample" parameterType="com.bean.EmployeeExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from employee
+    where eid = #{eid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from employee
+    where eid = #{eid,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.bean.EmployeeExample">
+    delete from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.bean.Employee">
+    insert into employee (eid, ename, esex, 
+      eage, etelephone, hiredate, 
+      jobnumber, password, remark, 
+      remark1, remark2)
+    values (#{eid,jdbcType=BIGINT}, #{ename,jdbcType=VARCHAR}, #{esex,jdbcType=BIGINT}, 
+      #{eage,jdbcType=BIGINT}, #{etelephone,jdbcType=VARCHAR}, #{hiredate,jdbcType=DATE}, 
+      #{jobnumber,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{remark1,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.bean.Employee">
+    insert into employee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        eid,
+      </if>
+      <if test="ename != null">
+        ename,
+      </if>
+      <if test="esex != null">
+        esex,
+      </if>
+      <if test="eage != null">
+        eage,
+      </if>
+      <if test="etelephone != null">
+        etelephone,
+      </if>
+      <if test="hiredate != null">
+        hiredate,
+      </if>
+      <if test="jobnumber != null">
+        jobnumber,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="remark1 != null">
+        remark1,
+      </if>
+      <if test="remark2 != null">
+        remark2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eid != null">
+        #{eid,jdbcType=BIGINT},
+      </if>
+      <if test="ename != null">
+        #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="esex != null">
+        #{esex,jdbcType=BIGINT},
+      </if>
+      <if test="eage != null">
+        #{eage,jdbcType=BIGINT},
+      </if>
+      <if test="etelephone != null">
+        #{etelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="hiredate != null">
+        #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="jobnumber != null">
+        #{jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.bean.EmployeeExample" resultType="java.lang.Long">
+    select count(*) from employee
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update employee
+    <set>
+      <if test="record.eid != null">
+        eid = #{record.eid,jdbcType=BIGINT},
+      </if>
+      <if test="record.ename != null">
+        ename = #{record.ename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.esex != null">
+        esex = #{record.esex,jdbcType=BIGINT},
+      </if>
+      <if test="record.eage != null">
+        eage = #{record.eage,jdbcType=BIGINT},
+      </if>
+      <if test="record.etelephone != null">
+        etelephone = #{record.etelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hiredate != null">
+        hiredate = #{record.hiredate,jdbcType=DATE},
+      </if>
+      <if test="record.jobnumber != null">
+        jobnumber = #{record.jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null">
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark1 != null">
+        remark1 = #{record.remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark2 != null">
+        remark2 = #{record.remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update employee
+    set eid = #{record.eid,jdbcType=BIGINT},
+      ename = #{record.ename,jdbcType=VARCHAR},
+      esex = #{record.esex,jdbcType=BIGINT},
+      eage = #{record.eage,jdbcType=BIGINT},
+      etelephone = #{record.etelephone,jdbcType=VARCHAR},
+      hiredate = #{record.hiredate,jdbcType=DATE},
+      jobnumber = #{record.jobnumber,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      remark1 = #{record.remark1,jdbcType=VARCHAR},
+      remark2 = #{record.remark2,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.bean.Employee">
+    update employee
+    <set>
+      <if test="ename != null">
+        ename = #{ename,jdbcType=VARCHAR},
+      </if>
+      <if test="esex != null">
+        esex = #{esex,jdbcType=BIGINT},
+      </if>
+      <if test="eage != null">
+        eage = #{eage,jdbcType=BIGINT},
+      </if>
+      <if test="etelephone != null">
+        etelephone = #{etelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="hiredate != null">
+        hiredate = #{hiredate,jdbcType=DATE},
+      </if>
+      <if test="jobnumber != null">
+        jobnumber = #{jobnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark1 != null">
+        remark1 = #{remark1,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null">
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where eid = #{eid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.bean.Employee">
+    update employee
+    set ename = #{ename,jdbcType=VARCHAR},
+      esex = #{esex,jdbcType=BIGINT},
+      eage = #{eage,jdbcType=BIGINT},
+      etelephone = #{etelephone,jdbcType=VARCHAR},
+      hiredate = #{hiredate,jdbcType=DATE},
+      jobnumber = #{jobnumber,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark1 = #{remark1,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR}
+    where eid = #{eid,jdbcType=BIGINT}
+  </update>
+
+  <select id="findEmployeeByCondition" resultMap="BaseResultMap">
+    select * from employee
+    <where>
+      <if test="null!=ename">
+        ename like concat('%',#{ename},'%')
+      </if>
+      <if test="null!=jobnumber">
+        and jobnumber like concat('%',jobnumber,'%')
+      </if>
+    </where>
+    limit #{limitStart},#{rows}
+  </select>
+
+  <select id="countEmployeeByName" resultType="_int">
+    select count(*) from employee
+    <where>
+      <if test="null!=ename">
+        ename like concat('%',#{ename},'%')
+      </if>
+    </where>
+  </select>
+
+</mapper>

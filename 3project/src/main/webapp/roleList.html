@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/css/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div id="tb">
+    <a href="/addRole.html" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</a>
+    角色名称：<input id="rname" type="text">
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="SearchFunction()">搜索</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cut',plain:true" onclick="BatchDelete()">批量删除</a>
+</div>
+<table id="dg"></table>
+
+<script>
+    $('#dg').datagrid({
+        url:'/role/findRolesByCondition',
+        columns:[[
+            {field:'rid',title:'角色id',width:100,checkbox:true},
+            {field:'rcode',title:'角色编码',width:100},
+            {field:'rname',title:'角色名称',width:100},
+            {field:'operate',title:'操作',width:100,
+                formatter: function(value,row,index){
+                    return "<a href=#>详情</a>\
+                        <a href=# onclick=toUpdateView("+row.rid+")>修改</a>\
+                        <a href=# onclick=deleteRole("+row.rid+")>删除</a>";
+                }}
+        ]],
+        pagination:true,
+        pageNumber:1,
+        pageSize:5,
+        pageList:[3,5,7],
+        toolbar: '#tb'
+    });
+
+    function SearchFunction() {
+        $('#dg').datagrid('load', {
+            rname: $('#rname').val()
+
+        });
+    }
+
+    /**
+     * 进入修改角色页面
+     */
+    function toUpdateView(rid) {
+        $.ajax({
+            type: "POST",
+            url: "/role/toUpdateView?rid="+rid,
+            success: function(data){
+                if(data.success){
+                    window.location.href="/updateRole.html";
+                }else{
+                    window.location.reload();
+                }
+            }
+        });
+    }
+
+    /**
+     * 删除角色
+     * @param fid
+     */
+    function deleteRole(rid) {
+        if(confirm("是否确认删除？")){
+            $.ajax({
+                type: "POST",
+                url: "/role/deleteRole?rid="+rid,
+                success: function(data){
+                    alert(data.message);
+                    window.location.reload();
+                }
+            });
+        }
+    }
+
+    /**
+     * 批量删除
+     * @constructor
+     */
+    function BatchDelete() {
+        if(confirm("是否确认删除？")){
+            var rows=$('#dg').datagrid('getChecked');
+            var fids='';
+            for(var i=0;i<rows.length;i++){
+                fids+=rows[i].fid+",";
+            }
+            $.ajax({
+                type: "POST",
+                url: "/function/batchDelete?fids="+fids,
+                success: function(data){
+                    alert(data.message);
+                    window.location.reload();
+                }
+            });
+        }
+
+    }
+</script>
+</body>
+</html>

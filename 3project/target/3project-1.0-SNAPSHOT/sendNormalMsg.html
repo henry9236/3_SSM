@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://192.168.111.115:8888/sendNormalMsg.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>发送消息页面</title>
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <form id="ff" method="post">
+        <input type="text" name="messagetype" value="NORMAL" style="display: none"><input id="attachmenturl" type="text" name="attachmenturl" style="display: none"><input id="remark1" type="text" name="remark1" style="display: none"><table cellpadding="5">
+            <tbody><tr>
+                <td>标题:</td>
+                <td><input class="easyui-textbox textbox-f" type="text" data-options="required:true" textboxname="title" style="display: none;"><span class="textbox textbox-invalid" style="width: 177px;"><input id="_easyui_textbox_input3" type="text" class="textbox-text validatebox-text validatebox-invalid textbox-prompt" autocomplete="off" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 28px; line-height: 28px; width: 175px;"><input type="hidden" class="textbox-value" name="title" value=""></span></td>
+            </tr>
+
+            <tr>
+                <td>内容:</td>
+                <td><input class="easyui-textbox textbox-f" style="width: 200px; height: 100px; display: none;" type="text" data-options="required:true" textboxname="content"><span class="textbox textbox-invalid" style="width: 200px; height: 100px;"><input id="_easyui_textbox_input4" type="text" class="textbox-text validatebox-text validatebox-invalid textbox-prompt" autocomplete="off" tabindex="" placeholder="" style="margin: 0px; padding-top: 0px; padding-bottom: 0px; height: 98px; line-height: 98px; width: 198px;"><input type="hidden" class="textbox-value" name="content" value=""></span></td>
+            </tr>
+            <tr>
+                <td>收件人:</td>
+                <td><input id="cc1" class="easyui-combobox combobox-f combo-f textbox-f" data-options="
+                url:&#39;/employee/getEmployeesByCondition&#39;,
+                valueField: &#39;eid&#39;,
+                textField: &#39;ename&#39;,
+                multiple: true" textboxname="recieptEids" style="display: none;" comboname="recieptEids"><span class="textbox combo" style="width: 177px;"><span class="textbox-addon textbox-addon-right" style="right: 0px; top: 0px;"><a href="javascript:;" class="textbox-icon combo-arrow" icon-index="0" tabindex="-1" style="width: 26px; height: 28px;"></a></span><input id="_easyui_textbox_input6" type="text" class="textbox-text validatebox-text textbox-prompt" autocomplete="off" tabindex="" placeholder="" style="margin: 0px 26px 0px 0px; padding-top: 0px; padding-bottom: 0px; height: 28px; line-height: 28px; width: 149px;"></span></td>
+            </tr>
+            
+            
+            
+
+        </tbody></table>
+    </form>
+
+    <!--文件上传入口-->
+    <table cellpadding="5">
+        <tbody><tr>
+            <td>文件上传:</td>
+            <td>
+                <form id="uploadAttachmentFile" method="post" enctype="multipart/form-data">
+                    <input id="file" class="easyui-filebox filebox-f textbox-f" style="width: 200px; font-size: 15px; display: none;" data-options="prompt:&#39;选择附件...&#39;,buttonText:&#39;点击选择&#39;,editable:false" textboxname="file"><span class="textbox filebox" style="width: 200px;"><a href="javascript:;" class="textbox-button textbox-button-right l-btn l-btn-small" group="" id="" style="height: 28px;"><span class="l-btn-left" style="margin-top: 0px;"><span class="l-btn-text">点击选择</span></span><label class="filebox-label" for="filebox_file_id_2"></label></a><input id="_easyui_textbox_input5" type="text" class="textbox-text validatebox-text validatebox-readonly textbox-prompt" autocomplete="off" tabindex="" readonly="readonly" placeholder="选择附件..." style="margin: 0px 69px 0px 0px; padding-top: 0px; padding-bottom: 0px; height: 28px; line-height: 28px; width: 129px;"><input type="file" class="textbox-value" id="filebox_file_id_2" name="file" accept="" capture=""></span>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>上传成功图片：</td>
+            <td>
+                <img id="uploadImg" style="width: 150px">
+            </td>
+        </tr>
+    </tbody></table>
+
+</div>
+<div style="text-align:center;padding:5px">
+    <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small" onclick="submitForm()" group="" id=""><span class="l-btn-left"><span class="l-btn-text">提交</span></span></a>
+    <a href="javascript:void(0)" class="easyui-linkbutton l-btn l-btn-small" onclick="clearForm()" group="" id=""><span class="l-btn-left"><span class="l-btn-text">取消</span></span></a>
+</div>
+<script>
+
+    $('#cc1').combobox({
+        onBeforeLoad: function(param){
+            param.ename = $('#cc1').combo('getText');
+            param.page = 1;
+            param.rows=999;
+        }
+    });
+
+    $("#file").filebox({
+        onChange: function (newValue, oldValue) {
+            if ($("#file").filebox("getText") == "") {
+                $.messager.alert('提示', "请先上传附件", 'warning');
+                return;
+            }
+            $('#uploadAttachmentFile').form('submit', {
+                url: "message/uploadAttachFile",
+                success: function (result) {
+                    var result = eval('(' + result + ')');
+                    if (!result.success) {
+                        //上传失败
+                        $.messager.alert('提示', result.msg, 'warning');
+                        return;
+                    }else{
+                        $('#attachmenturl').val(result.attachmentUrl);
+                        $('#remark1').val(result.uploadFileName);
+                        $('#uploadImg').attr('src','/uploadFile/'+result.uploadFileName);
+                    }
+
+                }
+            });
+        }
+    });
+
+    function submitForm(){
+        $('#ff').form('submit', {
+            url:"/message/addMessage",
+            success:function(data){
+                var obj = eval("("+data+")");
+                alert(obj.message);
+                if(obj.success){
+                    window.location.reload();
+                }else{
+                    window.location.reload();
+                }
+            }
+        });
+    }
+    function clearForm(){
+        $('#ff').form('clear');
+    }
+</script><div class="panel combo-p panel-htop" style="position: absolute; z-index: 10; display: none;"><div class="combo-panel panel-body panel-body-noheader" title="" id=""><div id="cc1_easyui_combobox_i2_0" class="combobox-item">管理员 张三</div><div id="cc1_easyui_combobox_i2_1" class="combobox-item">小娜</div><div id="cc1_easyui_combobox_i2_2" class="combobox-item">王五</div></div></div>
+
+</body></html>
