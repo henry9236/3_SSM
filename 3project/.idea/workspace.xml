@@ -6,12 +6,37 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8ec0aaa8-a372-4bed-b918-978253c1216a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8ec0aaa8-a372-4bed-b918-978253c1216a" name="Default Changelist" comment="Shiro seting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controller/EfunctionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controller/EfunctionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dao/EmployeeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dao/EmployeeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/realm/EmployeeRealm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/realm/EmployeeRealm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext-Shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext-Shiro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmployeeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/functionList.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/functionList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/applicationContext-Shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/applicationContext-Shiro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/bean/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/bean/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/controller/EfunctionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/controller/EfunctionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/controller/EmployeeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/controller/EmployeeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/dao/EmployeeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/dao/EmployeeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/realm/EmployeeRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/realm/EmployeeRealm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/service/EfunctionServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/com/service/EfunctionServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/WEB-INF/classes/mapper/EmployeeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/addEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/addEmployee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/addFunction.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/addFunction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/functionList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/functionList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/roleList.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/roleList.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateEmployee.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateEmployee.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateFunction.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateFunction.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateRole.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/3project-1.0-SNAPSHOT/updateRole.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext-Shiro.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext-Shiro.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dao/EmployeeMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dao/EmployeeMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/realm/EmployeeRealm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/realm/EmployeeRealm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/EmployeeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/EmployeeMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +226,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
-          <option name="contentProportion" value="0.13006537" />
+          <option name="contentProportion" value="0.2768595" />
           <treeState>
             <expand>
               <path>
@@ -311,70 +336,70 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="600" y="215" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1618514083562" />
-    <state width="1559" height="170" key="GridCell.Tab.0.bottom" timestamp="1618865257872">
+    <state width="1106" height="379" key="GridCell.Tab.0.bottom" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1559" height="170" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618865257872" />
-    <state width="1559" height="170" key="GridCell.Tab.0.center" timestamp="1618865257872">
+    <state width="1106" height="379" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.0.center" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1559" height="170" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1618865257872" />
-    <state width="1559" height="170" key="GridCell.Tab.0.left" timestamp="1618865257872">
+    <state width="1106" height="379" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.0.left" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1559" height="170" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1618865257872" />
-    <state width="1559" height="170" key="GridCell.Tab.0.right" timestamp="1618865257872">
+    <state width="1106" height="379" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.0.right" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1559" height="170" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1618865257872" />
-    <state width="1330" height="84" key="GridCell.Tab.1.bottom" timestamp="1618865257861">
+    <state width="1106" height="379" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.1.bottom" timestamp="1618943127332">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618865257861" />
-    <state width="1330" height="84" key="GridCell.Tab.1.center" timestamp="1618865257861">
+    <state width="1106" height="379" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618943127332" />
+    <state width="1106" height="379" key="GridCell.Tab.1.center" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1618865257861" />
-    <state width="1330" height="84" key="GridCell.Tab.1.left" timestamp="1618865257861">
+    <state width="1106" height="379" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.1.left" timestamp="1618943127331">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1618865257861" />
-    <state width="1330" height="84" key="GridCell.Tab.1.right" timestamp="1618865257861">
+    <state width="1106" height="379" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1618943127331" />
+    <state width="1106" height="379" key="GridCell.Tab.1.right" timestamp="1618943127332">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1618865257861" />
-    <state width="1330" height="84" key="GridCell.Tab.2.bottom" timestamp="1618865257862">
+    <state width="1106" height="379" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1618943127332" />
+    <state width="1106" height="379" key="GridCell.Tab.2.bottom" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.2.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618865257862" />
-    <state width="1330" height="84" key="GridCell.Tab.2.center" timestamp="1618865257862">
+    <state width="1106" height="379" key="GridCell.Tab.2.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.2.center" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.2.center/0.0.1600.860@0.0.1600.860" timestamp="1618865257862" />
-    <state width="1330" height="84" key="GridCell.Tab.2.left" timestamp="1618865257861">
+    <state width="1106" height="379" key="GridCell.Tab.2.center/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.2.left" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.2.left/0.0.1600.860@0.0.1600.860" timestamp="1618865257861" />
-    <state width="1330" height="84" key="GridCell.Tab.2.right" timestamp="1618865257862">
+    <state width="1106" height="379" key="GridCell.Tab.2.left/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.2.right" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="84" key="GridCell.Tab.2.right/0.0.1600.860@0.0.1600.860" timestamp="1618865257862" />
-    <state width="1330" height="341" key="GridCell.Tab.3.bottom" timestamp="1618863125933">
+    <state width="1106" height="379" key="GridCell.Tab.2.right/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.3.bottom" timestamp="1618943126880">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="341" key="GridCell.Tab.3.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618863125933" />
-    <state width="1330" height="341" key="GridCell.Tab.3.center" timestamp="1618863125932">
+    <state width="1106" height="379" key="GridCell.Tab.3.bottom/0.0.1600.860@0.0.1600.860" timestamp="1618943126880" />
+    <state width="1106" height="379" key="GridCell.Tab.3.center" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="341" key="GridCell.Tab.3.center/0.0.1600.860@0.0.1600.860" timestamp="1618863125932" />
-    <state width="1330" height="341" key="GridCell.Tab.3.left" timestamp="1618863125932">
+    <state width="1106" height="379" key="GridCell.Tab.3.center/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.3.left" timestamp="1618943126879">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="341" key="GridCell.Tab.3.left/0.0.1600.860@0.0.1600.860" timestamp="1618863125932" />
-    <state width="1330" height="341" key="GridCell.Tab.3.right" timestamp="1618863125933">
+    <state width="1106" height="379" key="GridCell.Tab.3.left/0.0.1600.860@0.0.1600.860" timestamp="1618943126879" />
+    <state width="1106" height="379" key="GridCell.Tab.3.right" timestamp="1618943126880">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1330" height="341" key="GridCell.Tab.3.right/0.0.1600.860@0.0.1600.860" timestamp="1618863125933" />
+    <state width="1106" height="379" key="GridCell.Tab.3.right/0.0.1600.860@0.0.1600.860" timestamp="1618943126880" />
     <state x="649" y="76" key="Maven.ArtifactSearchDialog" timestamp="1618825575212">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -399,18 +424,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="570" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1618926609570" />
-    <state x="338" y="168" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1618565865904">
+    <state x="346" y="168" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1618943122945">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="338" y="168" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1600.860@0.0.1600.860" timestamp="1618565865904" />
+    <state x="346" y="168" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1600.860@0.0.1600.860" timestamp="1618943122945" />
     <state x="484" y="60" width="1116" height="662" key="new project wizard" timestamp="1618514149387">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="484" y="60" width="1116" height="662" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1618514149387" />
-    <state x="679" y="198" width="672" height="677" key="run.anything.popup" timestamp="1618864542147">
+    <state x="679" y="198" width="672" height="677" key="run.anything.popup" timestamp="1618941532681">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="679" y="198" width="672" height="677" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1618864542147" />
+    <state x="679" y="198" width="672" height="677" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1618941532681" />
     <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1618367819688">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -419,9 +444,9 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/realm/EmployeeRealm.java</url>
-          <line>40</line>
+          <line>47</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

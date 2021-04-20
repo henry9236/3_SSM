@@ -5,6 +5,7 @@ import com.bean.EmployeeExample;
 import com.dao.EmployeeMapper;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
@@ -23,7 +24,13 @@ public class EmployeeRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+        //获取当前登录用户的登录信息，该身份信息在认证时已设置
+        Employee employee = (Employee) principalCollection.getPrimaryPrincipal();
+        long employeeRid = employeeMapper.findEmployeeRoleIdByEid((employee.getEid()));
+        //将从数据库中查询到的权限信息封装到AuthorizationInfo中去
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+        simpleAuthorizationInfo.addRole(String.valueOf(employeeRid));
+        return simpleAuthorizationInfo;
     }
 
     /**

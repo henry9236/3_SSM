@@ -326,4 +326,7 @@
     </where>
   </select>
 
+    <select id="findEmployeeRoleIdByEid" resultType="_int">
+      SELECT er.`rid` FROM employee e LEFT JOIN employee_role er ON  e.`eid`= er.`eid` WHERE e.`eid` = #{eid}
+    </select>
 </mapper>

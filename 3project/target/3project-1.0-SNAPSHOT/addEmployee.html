@@ -72,8 +72,8 @@
             url:"/employee/addEmployee",
             success:function(data){
                 var obj=eval("("+data+")")
-                alert(obj.msg);
-                if(obj.status){
+                alert(obj.message);
+                if(obj.success){
                     window.location.href="/employeeList.html"
                 }else{
                     window.location.reload();

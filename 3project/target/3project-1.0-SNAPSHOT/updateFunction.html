@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>修改权限页面</title>
-    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/css/demo/demo.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 </head>
@@ -44,7 +44,7 @@
     onSelect: function(rec){
     if(rec.id==2){
         $('#parentFunction').removeAttr('style');
-        var url = '/EFunction/getFirstFunctions';
+        var url = '/function/getFirstFunctions';
         $('#cc2').combobox('reload', url);
     }else{
           $('#parentFunction').attr('style','display: none')
@@ -68,7 +68,7 @@
     $(document).ready(function(){
         $.ajax({
             type: "POST",
-            url: "/EFunction/getUpdateFunction",
+            url: "/function/getUpdateFunction",
             success: function(data){
                 $('#fid').val(data.fid);
                 $('#fcode').textbox('setValue',data.fcode);
@@ -84,6 +84,7 @@
                     $('#cc2').combobox('setValue', data.parentid);
                     $('#cc2').combobox('setText', data.remark2);
                 }
+
             }
         });
     });
@@ -93,11 +94,11 @@
      */
     function submitForm(){
         $('#ff').form('submit', {
-            url:"/EFunction/commitUpdateFunction",
+            url:"/function/updateFunction",
             success:function(data){
                 var obj=eval("("+data+")")
-                alert(obj.msg);
-                if(obj.status){
+                alert(obj.message);
+                if(obj.success){
                     window.location.href="/functionList.html"
                 }else{
                     window.location.reload();

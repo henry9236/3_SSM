@@ -22,6 +22,8 @@ https://www.springframework.org/schema/context/spring-context.xsd">
                 /css/** = anon
                 /index.html = anon
                 /employee/login = anon
+                /functionList.html = roles[5]
+                /employeeList.html = roles[1]
                 /** = authc
             </value>
         </property>
