@@ -20,7 +20,9 @@ https://www.springframework.org/schema/context/spring-context.xsd">
             <value>
                 /js/** = anon
                 /css/** = anon
-                /** = anon
+                /index.html = anon
+                /employee/login = anon
+                /** = authc
             </value>
         </property>
     </bean>

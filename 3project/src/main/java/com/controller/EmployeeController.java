@@ -42,42 +42,42 @@ public class EmployeeController {
      * 登录响应，检查数据库中是否有该数据(账号密码是否正确)
      * @return
      */
+
     @RequestMapping("login")
     @ResponseBody
-    public String checkLogin(HttpSession session){
-        Result result = new Result();
-        String exception = (String) session.getAttribute("shiroLoginFailure");
-        if(null!=exception){
-            if(UnknownAccountException.class.getName().equals(exception)){
-                result.setMessage("登录失败");
-                result.setSuccess(false);
-            }else  if(IncorrectCredentialsException.class.getName().equals(exception)){
-                result.setMessage("登录成功");
-                result.setSuccess(true);
-            }
+    public String checkLogin(String username,String password){
+//        String exception = (String) session.getAttribute("shiroLoginFailure");
+//        if(null!=exception){
+//            if(UnknownAccountException.class.getName().equals(exception)){
+//                result.setMessage("登录失败");
+//                result.setSuccess(false);
+//            }else  if(IncorrectCredentialsException.class.getName().equals(exception)){
+//                result.setMessage("登录成功");
+//                result.setSuccess(true);
+//            }
+//        }
+//        return result.toString();
+    //shiro认证
+    //获取登录对象
+    Result result = new Result();
+    Subject subject = SecurityUtils.getSubject();
+    //登录校验
+    UsernamePasswordToken token = new UsernamePasswordToken(username,password);
+        try {
+            //进行校验，如果校验失败就抛出异常
+            subject.login(token);
+            result.setMessage("登录成功");
+            result.setSuccess(true);
+            //将登录对象存到 session域
+            Session session = subject.getSession();
+            session.setAttribute("employee",subject.getPrincipal());
+        }catch (Exception e){
+            result.setMessage("登录失败");
+            result.setSuccess(false);
         }
-        return result.toString();
-//    //shiro认证
-//    //获取登录对象
-//    Subject subject = SecurityUtils.getSubject();
-//    //登录校验
-//    UsernamePasswordToken token = new UsernamePasswordToken(name,password);
-//    try {
-//        //进行校验，如果校验失败就抛出异常
-//        subject.login(token);
-//        result.setMsg("登录成功");
-//        result.setStatus(true);
-//        //将登录对象存到 session域
-//        Session session = subject.getSession();
-//        session.setAttribute("employee",subject.getPrincipal());
-//    }catch (Exception e){
-//        result.setMsg("登录失败");
-//        result.setStatus(false);
-//    }
-//       return result.toString();
-//
-
+       return result.toString();
     }
+
     @RequestMapping("getCurrentEmployee")
     @ResponseBody
     public String getCurrentEmployee (HttpSession httpSession){
