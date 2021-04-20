@@ -19,8 +19,12 @@ https://www.springframework.org/schema/context/spring-context.xsd">
         <property name="filterChainDefinitions">
             <value>
                 /js/** = anon
-                /easy-ui/** = anon
-                /** = anon
+                /css/** = anon
+                /index.html = anon
+                /employee/login = anon
+                /functionList.html = roles[5]
+                /employeeList.html = roles[1]
+                /** = authc
             </value>
         </property>
     </bean>

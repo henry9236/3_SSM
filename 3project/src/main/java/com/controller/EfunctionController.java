@@ -30,7 +30,7 @@ public class EfunctionController {
      * @param
      * @return
      */
-    @RequestMapping("checkFunction")
+    @RequestMapping("currentFunctions")
     @ResponseBody
     public JSONArray checkEmployeeFunction(HttpSession httpSession){
 

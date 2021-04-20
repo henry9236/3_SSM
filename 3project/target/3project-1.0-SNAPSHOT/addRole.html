@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>修改角色页面</title>
+    <title>新增角色页面</title>
     <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="/css/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/css/demo/demo.css">
@@ -14,21 +14,31 @@
 
 <div align="center">
     <form id="ff" method="post">
-        <input id="rid" type="hidden" name="rid">
         <table cellpadding="5">
             <tr>
                 <td>角色编码:</td>
-                <td><input id="rcode" class="easyui-textbox" type="text" name="rcode" data-options="required:true"></input></td>
+                <td><input class="easyui-textbox" type="text" name="rcode" data-options="required:true"></input></td>
             </tr>
             <tr>
                 <td>角色名称:</td>
-                <td><input id="rname" class="easyui-textbox" type="text" name="rname" data-options="required:true"></input></td>
+                <td><input class="easyui-textbox" type="text" name="rname" data-options="required:true"></input></td>
             </tr>
 
             <tr>
-                <td>角色功能:</td>
+                <td>一级功能:</td>
                 <td>
-                    <ul id="tt"></ul>
+                    <input name="fids" id="cc1" class="easyui-combobox" data-options="
+    valueField: 'fid',
+    textField: 'fname',
+    url:'/function/getFirstFunctions',
+    multiple:true,
+    onSelect: function(rec){
+     var url = '/function/findFunctionsByParentId?parentid='+rec.fid;
+        $('#cc2').combobox('reload', url);
+
+    }">
+                    <input name="fids" id="cc2" class="easyui-combobox" data-options="valueField:'fid',textField:'fname',label:'二级功能：',multiple:true">
+
                 </td>
             </tr>
 
@@ -41,33 +51,9 @@
 </div>
 
 <script>
-    $(document).ready(function(){
-        $.ajax({
-            type: "POST",
-            url: "/role/getUpdateRole",
-            success: function(data){
-                $('#rid').val(data.rid);
-                $('#rcode').textbox('setValue',data.rcode);
-                $('#rname').textbox('setValue',data.rname);
-                $('#tt').tree({
-                    url:'/role/getRoleFunctoinsTree',
-                    checkbox:true
-                });
-
-
-            }
-        });
-    });
-
     function submitForm(){
-        //获取修改之后的功能节点
-        var nodes = $('#tt').tree('getChecked', ['checked','indeterminate']);
-        var fids='';
-        for(var i=0;i<nodes.length;i++){
-            fids+=nodes[i].id+",";
-        }
         $('#ff').form('submit', {
-            url:"/role/updateRole?fids="+fids,
+            url:"/role/addRole",
             success:function(data){
                 var obj=eval("("+data+")")
                 alert(obj.message);

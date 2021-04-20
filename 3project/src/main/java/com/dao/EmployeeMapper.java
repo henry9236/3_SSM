@@ -44,4 +44,11 @@ public interface EmployeeMapper {
      * @return
      */
     int countEmployeeByName(@Param("ename")String ename);
+
+    /**
+     * 根据员工id获取员工的rid
+     * @param eid
+     * @return
+     */
+    int findEmployeeRoleIdByEid(long eid);
 }

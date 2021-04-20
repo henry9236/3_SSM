@@ -43,11 +43,7 @@
                 var obj=eval("("+data+")")
                 alert(obj.message);
                 if(obj.success){
-                    if(obj.loginSuccess){
-                        window.location.href="/main.html"
-                    }else{
-                        window.location.reload();
-                    }
+                    window.location.href="/main.html"
                 }else{
                     window.location.reload();
                 }

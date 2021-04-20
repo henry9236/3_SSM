@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>新增权限页面</title>
-    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="/easy-ui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="/easy-ui/demo/demo.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/css/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="/css/demo/demo.css">
     <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
 </head>
@@ -43,7 +43,7 @@
     onSelect: function(rec){
     if(rec.id==2){
         $('#parentFunction').removeAttr('style');
-        var url = '/EFunction/getFirstFunctions';
+        var url = '/function/getFirstFunctions';
         $('#cc2').combobox('reload', url);
     }else{
           $('#parentFunction').attr('style','display: none')
@@ -66,14 +66,13 @@
 <script>
     function submitForm(){
         $('#ff').form('submit', {
-            url:"/EFunction/addFunction",
+            url:"/function/addFunction",
             success:function(data){
                 var obj=eval("("+data+")")
-                alert(obj.msg);
-                if(obj.status){
+                alert(obj.message);
+                if(obj.success){
                   window.location.href="/functionList.html"
                 }else{
-                    alert("功能编码已经存在")
                     window.location.reload();
                 }
             }
